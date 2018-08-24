@@ -48,13 +48,15 @@ app.get('/about', (req, res) => {
   });
 });
 
-// /bad - send back json with errorMessage
+//bad - send back json with errorMessage
 app.get('/bad', (req, res) => {
   res.send({
     errorMessage: 'Unable to handle request'
   });
 });
 
-app.listen(3000, () => {
-  console.log('Server is up on port 3000');
+const port=process.env.port || 3000;
+
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}`);
 });
